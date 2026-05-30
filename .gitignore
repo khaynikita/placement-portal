@@ -1,0 +1,14 @@
+# Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# Spring Boot
+backend/target/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Mac
+.DS_Store

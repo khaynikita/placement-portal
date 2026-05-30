@@ -1,0 +1,62 @@
+<!-- <div class="post-job-container"> -->
+
+  <!-- <div class="card">
+    <h2>Post a New Job</h2> -->
+
+    <!-- <form> -->
+
+      <!-- Title -->
+      <!-- <label>Job Title</label>
+      <input type="text" placeholder="Enter job title" /> -->
+
+      <!-- Description -->
+      <!-- <label>Description</label>
+      <textarea rows="5" placeholder="Enter job description"></textarea> -->
+
+      <!-- Skills -->
+      <!-- <label>Skills</label>
+      <div class="skills-input">
+        <input type="text" placeholder="Add a skill..." />
+        <button type="button">Add</button>
+      </div> -->
+
+      <!-- <div class="skills-container">
+        <span class="skill-tag">Java ✕</span>
+        <span class="skill-tag">Spring Boot ✕</span>
+      </div> -->
+
+      <!-- Salary -->
+      <!-- <label>Salary</label> -->
+      <!-- <input type="text" placeholder="e.g. 10-15 LPA" /> -->
+
+      <!-- Submit -->
+      <!-- <button class="submit-btn">Post Job</button>
+
+    </form>
+  </div>
+
+</div> -->
+
+<!-- post-job.html -->
+
+<div class="post-job-container">
+
+  <h2>Create Job</h2>
+
+  <input
+    type="text"
+    placeholder="Title"
+    [(ngModel)]="jobData.title"
+  >
+
+  <input
+    type="text"
+    placeholder="Company"
+    [(ngModel)]="jobData.companyName"
+  >
+
+  <button (click)="createJob()">
+    Create Job
+  </button>
+
+</div>

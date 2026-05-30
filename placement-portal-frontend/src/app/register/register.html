@@ -1,0 +1,57 @@
+<div class="register-container">
+
+  <div class="register-card">
+
+    <h2>Create Account</h2>
+
+    <form (ngSubmit)="registerUser()">
+
+      <input
+        type="text"
+        placeholder="Full Name"
+        [(ngModel)]="registerData.name"
+        name="name"
+      >
+
+      <input
+        type="email"
+        placeholder="Email"
+        [(ngModel)]="registerData.email"
+        name="email"
+      >
+
+      <input
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="registerData.password"
+        name="password"
+      >
+
+      <select
+        [(ngModel)]="registerData.role"
+        name="role"
+      >
+
+        <option value="STUDENT">
+          Student
+        </option>
+
+        <option value="RECRUITER">
+          Recruiter
+        </option>
+
+      </select>
+
+      <button type="submit">
+        Register
+      </button>
+
+    </form>
+
+    <p class="message">
+      {{ message }}
+    </p>
+
+  </div>
+
+</div>

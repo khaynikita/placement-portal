@@ -1,0 +1,55 @@
+<div class="job-card">
+
+  <div class="job-header">
+
+    <div>
+
+      <h3 class="job-title">
+        {{ job.title }}
+      </h3>
+
+      <p class="company">
+        {{ job.companyName }}
+      </p>
+
+    </div>
+
+    <span class="job-type">
+      {{ job.jobType }}
+    </span>
+
+  </div>
+
+  <div class="job-details">
+
+    <span>💰 {{ job.salary }}</span>
+
+    <span>📍 {{ job.location }}</span>
+
+  </div>
+
+  <div class="skills">
+
+    <span
+      class="skill"
+      *ngFor="let skill of job.skills">
+
+      {{ skill }}
+
+    </span>
+
+  </div>
+
+  <div class="job-footer">
+
+    <button class="apply-btn">
+      Apply
+    </button>
+
+    <button class="view-btn">
+      View Details
+    </button>
+
+  </div>
+
+</div>

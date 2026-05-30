@@ -1,0 +1,81 @@
+<!-- <div class="profile-container"> -->
+
+  <!-- Profile Header -->
+  <!-- <div class="profile-header">
+    <img src="https://i.pravatar.cc/100" class="avatar" />
+    <div>
+      <h2>Nikita Bisht</h2>
+      <p class="email">nikita@example.com</p>
+    </div>
+    <button class="edit-btn">Edit Profile</button>
+  </div> -->
+
+  <!-- Main Content -->
+  <!-- <div class="profile-content"> -->
+
+    <!-- LEFT SIDE -->
+    <!-- <div class="left"> -->
+
+      <!-- Skills Section -->
+      <!-- <div class="card">
+        <h3>Skills</h3>
+
+        <div class="skills-container">
+          <span class="skill-tag">
+            Java <span class="remove">✕</span>
+          </span>
+          <span class="skill-tag">
+            Spring Boot <span class="remove">✕</span>
+          </span>
+          <span class="skill-tag">
+            Angular <span class="remove">✕</span>
+          </span>
+        </div>
+
+        <div class="add-skill">
+          <input type="text" placeholder="Add a skill..." />
+          <button>Add</button>
+        </div>
+      </div> -->
+
+    <!-- </div> -->
+
+    <!-- RIGHT SIDE -->
+    <!-- <div class="right"> -->
+
+      <!-- Resume Upload -->
+      <!-- <div class="card">
+        <h3>Resume</h3>
+
+        <div class="upload-box">
+          <p>Upload your resume (PDF)</p>
+          <input type="file" />
+        </div> -->
+
+        <!-- Uploaded file preview -->
+        <!-- <div class="resume-file">
+          <span>📄 resume.pdf</span>
+          <button class="view-btn">View</button>
+        </div> -->
+
+        <!-- AI Analysis Button -->
+        <!-- <button class="ai-btn">Analyze Resume (AI)</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div> -->
+
+<!-- profile.html -->
+
+<div *ngIf="profile">
+
+  <h2>{{ profile.name }}</h2>
+
+  <p>{{ profile.role }}</p>
+
+  <p>{{ profile.email }}</p>
+
+</div>

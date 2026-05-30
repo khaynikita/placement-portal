@@ -1,0 +1,21 @@
+<!-- admin.html -->
+
+<div class="admin-container">
+
+  <h2>Admin Dashboard</h2>
+
+  <div *ngIf="dashboardData">
+
+    <p>
+      Total Users:
+      {{ dashboardData.totalUsers }}
+    </p>
+
+    <p>
+      Total Jobs:
+      {{ dashboardData.totalJobs }}
+    </p>
+
+  </div>
+
+</div>

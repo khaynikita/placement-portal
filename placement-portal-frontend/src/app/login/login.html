@@ -1,0 +1,35 @@
+<div class="login-container">
+
+  <div class="login-card">
+
+    <h2>Login</h2>
+
+    <form (ngSubmit)="loginUser()">
+
+      <input
+        type="email"
+        placeholder="Email"
+        [(ngModel)]="loginData.email"
+        name="email"
+      >
+
+      <input
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="loginData.password"
+        name="password"
+      >
+
+      <button type="submit">
+        Login
+      </button>
+
+    </form>
+
+    <p class="message">
+      {{ message }}
+    </p>
+
+  </div>
+
+</div>

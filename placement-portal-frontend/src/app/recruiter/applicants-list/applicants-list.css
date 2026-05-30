@@ -1,0 +1,78 @@
+.applicants-container {
+  padding: 20px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+/* Card */
+.applicant-card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.applicant-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Left */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+/* Right */
+.right {
+  display: flex;
+  gap: 10px;
+}
+
+/* Buttons */
+.view-btn {
+  border: 1px solid #4f46e5;
+  background: transparent;
+  color: #4f46e5;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background: #eef2ff;
+}
+
+.shortlist-btn {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.shortlist-btn:hover {
+  background: #059669;
+}
+
+.reject-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.reject-btn:hover {
+  background: #dc2626;
+}

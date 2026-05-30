@@ -1,0 +1,99 @@
+<!-- <div class="applications-container"> -->
+
+  <!-- Header -->
+  <!-- <div class="header">
+    <h2>My Applications</h2>
+  </div> -->
+
+  <!-- Filter Section -->
+  <!-- <div class="filter-section">
+    <button class="filter-btn active">All</button>
+    <button class="filter-btn">Applied</button>
+    <button class="filter-btn">Shortlisted</button>
+    <button class="filter-btn">Rejected</button>
+  </div> -->
+
+  <!-- Applications List -->
+  <!-- <div class="applications-list"> -->
+
+    <!-- Application Card -->
+    <!-- <div class="application-card">
+
+      <div class="left">
+        <h3>Backend Developer</h3>
+        <p class="company">Amazon • Bangalore</p>
+        <p class="date">Applied on: 12 Aug 2026</p>
+      </div>
+
+      <div class="right">
+        <span class="status applied">Applied</span>
+        <button class="view-btn">View</button>
+      </div>
+
+    </div> -->
+
+    <!-- Application Card -->
+    <!-- <div class="application-card">
+
+      <div class="left">
+        <h3>Java Developer</h3>
+        <p class="company">Infosys • Pune</p>
+        <p class="date">Applied on: 10 Aug 2026</p>
+      </div>
+
+      <div class="right">
+        <span class="status shortlisted">Shortlisted</span>
+        <button class="view-btn">View</button>
+      </div>
+
+    </div> -->
+
+    <!-- Application Card -->
+    <!-- <div class="application-card">
+
+      <div class="left">
+        <h3>Full Stack Developer</h3>
+        <p class="company">TCS • Hyderabad</p>
+        <p class="date">Applied on: 8 Aug 2026</p>
+      </div>
+
+      <div class="right">
+        <span class="status rejected">Rejected</span>
+        <button class="view-btn">View</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div> -->
+
+<!-- applications.html -->
+
+<div class="applications-container">
+
+  <h2>My Applications</h2>
+
+  <div
+    class="application-card"
+    *ngFor="let application of applications"
+  >
+
+    <p>
+      <strong>Job ID:</strong>
+      {{ application.jobId }}
+    </p>
+
+    <p>
+      <strong>Status:</strong>
+      {{ application.status }}
+    </p>
+
+    <p>
+      <strong>Applied At:</strong>
+      {{ application.appliedAt }}
+    </p>
+
+  </div>
+
+</div>

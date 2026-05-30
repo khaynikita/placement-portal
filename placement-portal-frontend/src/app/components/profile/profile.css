@@ -1,0 +1,147 @@
+.profile-container {
+  padding: 20px;
+  background: #f5f7fb;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.email {
+  color: #6b7280;
+  margin: 5px 0;
+}
+
+.edit-btn {
+  margin-left: auto;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background: #4338ca;
+}
+
+/* Layout */
+.profile-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+/* Card */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Skills */
+.skills-container {
+  margin: 10px 0;
+}
+
+.skill-tag {
+  display: inline-block;
+  background: #eef2ff;
+  color: #4f46e5;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin: 5px 5px 0 0;
+  font-size: 13px;
+}
+
+.skill-tag .remove {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+/* Add Skill */
+.add-skill {
+  display: flex;
+  margin-top: 10px;
+}
+
+.add-skill input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px 0 0 6px;
+}
+
+.add-skill button {
+  padding: 8px 12px;
+  border: none;
+  background: #4f46e5;
+  color: white;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+}
+
+/* Upload */
+.upload-box {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.upload-box input {
+  margin-top: 10px;
+}
+
+/* Resume file */
+.resume-file {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.view-btn {
+  background: transparent;
+  border: 1px solid #4f46e5;
+  color: #4f46e5;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background: #eef2ff;
+}
+
+/* AI Button */
+.ai-btn {
+  width: 100%;
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ai-btn:hover {
+  background: #059669;
+}
