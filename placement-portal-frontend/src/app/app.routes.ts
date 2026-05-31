@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 
 import { Dashboard } from './components/dashboard/dashboard';
 import { Jobs } from './components/jobs/jobs';
+import { JobDetails } from './components/job-details/job-details';
+import { JobApply } from './components/job-apply/job-apply';
 import { Applications } from './components/applications/applications';
 import { Admin } from './components/admin/admin';
 
@@ -34,8 +36,18 @@ export const routes: Routes = [
 
   {
     path: 'jobs',
-    component: Jobs,
+    component: Jobs
+  },
+
+  {
+    path: 'jobs/:id/apply',
+    component: JobApply,
     canActivate: [authGuard]
+  },
+
+  {
+    path: 'jobs/:id',
+    component: JobDetails
   },
 
   {

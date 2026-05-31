@@ -6,6 +6,16 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
+export interface ApplyJobRequest {
+  jobId: string;
+  studentId: string;
+  applicantName: string;
+  email: string;
+  phone: string;
+  resumeUrl: string;
+  coverLetter: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +27,7 @@ export class ApplicationService {
     'http://localhost:8080/applications';
 
   applyToJob(
-    applicationData: any
+    applicationData: ApplyJobRequest
   ): Observable<any> {
 
     return this.http.post<any>(
@@ -33,6 +43,14 @@ export class ApplicationService {
 
     return this.http.get<any>(
       `${this.apiUrl}/student/${studentId}`
+    );
+
+  }
+
+  getCurrentUserApplications(): Observable<any[]> {
+
+    return this.http.get<any[]>(
+      `${this.apiUrl}/my`
     );
 
   }

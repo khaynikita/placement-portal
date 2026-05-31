@@ -1,6 +1,5 @@
 .jobs-container {
-    border-radius: 20px;
-  /* padding: 20px;
+  /* padding: 24px; */
   background: #f5f7fb;
-  min-height: 100vh; */
+  /* min-height: calc(100vh - 72px); */
 }

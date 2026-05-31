@@ -42,11 +42,19 @@
 
   <div class="job-footer">
 
-    <button class="apply-btn">
+    <button
+      class="apply-btn"
+      type="button"
+      [routerLink]="['/jobs', job.id, 'apply']"
+    >
       Apply
     </button>
 
-    <button class="view-btn">
+    <button
+      class="view-btn"
+      type="button"
+      [routerLink]="['/jobs', job.id]"
+    >
       View Details
     </button>
 

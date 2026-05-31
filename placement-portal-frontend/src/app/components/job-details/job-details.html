@@ -1,0 +1,58 @@
+<div class="details-page" *ngIf="job() as job">
+
+  <section class="details-header">
+    <div>
+      <h2>{{ job.title }}</h2>
+      <p>{{ job.companyName }} · {{ job.location }}</p>
+    </div>
+
+    <a
+      class="apply-link"
+      [routerLink]="['/jobs', job.id, 'apply']"
+    >
+      Apply
+    </a>
+  </section>
+
+  <section class="details-grid">
+    <div>
+      <span>Job Type</span>
+      <strong>{{ job.jobType }}</strong>
+    </div>
+
+    <div>
+      <span>Salary</span>
+      <strong>{{ job.salary }}</strong>
+    </div>
+
+    <div>
+      <span>Experience</span>
+      <strong>{{ job.experienceRequired }}</strong>
+    </div>
+
+    <div>
+      <span>Status</span>
+      <strong>{{ job.status }}</strong>
+    </div>
+  </section>
+
+  <section class="details-section">
+    <h3>Description</h3>
+    <p>{{ job.description }}</p>
+  </section>
+
+  <section class="details-section">
+    <h3>Requirements</h3>
+    <p>{{ job.requirements }}</p>
+  </section>
+
+  <section class="details-section">
+    <h3>Skills</h3>
+    <div class="skills">
+      <span class="skill" *ngFor="let skill of job.skills">
+        {{ skill }}
+      </span>
+    </div>
+  </section>
+
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../services/auth';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,10 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './navbar.css',
 })
 export class Navbar {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   // You can later connect this with user API
   user = {
@@ -18,7 +22,7 @@ export class Navbar {
 
   logout() {
 
-    localStorage.removeItem('token');
+    this.authService.logout();
 
     this.router.navigate(['/login']);
 

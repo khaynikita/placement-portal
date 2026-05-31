@@ -68,6 +68,21 @@
   color: #9ca3af;
 }
 
+.skills {
+  margin-top: 10px;
+}
+
+.skill {
+  display: inline-block;
+  background: #f3f4f6;
+  color: #374151;
+  padding: 4px 10px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
 /* Right */
 .right {
   display: flex;

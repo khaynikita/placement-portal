@@ -1,37 +1,9 @@
-<!-- <div class="jobs-page"> -->
-
-  <!-- Left: Job Cards -->
-  <!-- <div class="jobs-list">
-
-    <app-job-card
-      *ngFor="let job of jobs"
-      [job]="job"
-    >
-    </app-job-card>
-
-  </div>
-</div> -->
-<!-- jobs.html -->
-
 <div class="jobs-container">
 
-  <div *ngFor="let job of jobs">
-
-    <app-job-card
-      [job]="job">
-    </app-job-card>
-
-  </div>
-
-</div>
-<!-- <h1>Jobs Component Loaded</h1>
-
-<p>Total Jobs: {{ jobs.length }}</p>
-
-@for (job of jobs; track job.id) {
-
   <app-job-card
-    [job]="job">
+    *ngFor="let job of jobs()"
+    [job]="job"
+  >
   </app-job-card>
 
-} -->
+</div>

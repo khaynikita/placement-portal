@@ -26,6 +26,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
+import { Job } from '../model/job.model';
 
 @Injectable({
   providedIn: 'root'
@@ -36,23 +37,23 @@ export class JobService {
 
   private apiUrl = 'http://localhost:8080/jobs';
 
-  getJobs(): Observable<any> {
+  getJobs(): Observable<Job[]> {
 
-    return this.http.get<any>(this.apiUrl);
+    return this.http.get<Job[]>(this.apiUrl);
 
   }
 
-  getJobById(id: string): Observable<any> {
+  getJobById(id: string): Observable<Job> {
 
-    return this.http.get<any>(
+    return this.http.get<Job>(
       `${this.apiUrl}/${id}`
     );
 
   }
 
-  createJob(jobData: any): Observable<any> {
+  createJob(jobData: any): Observable<Job> {
 
-    return this.http.post<any>(
+    return this.http.post<Job>(
       this.apiUrl,
       jobData
     );
@@ -62,9 +63,9 @@ export class JobService {
   updateJob(
     id: string,
     jobData: any
-  ): Observable<any> {
+  ): Observable<Job> {
 
-    return this.http.put<any>(
+    return this.http.put<Job>(
       `${this.apiUrl}/${id}`,
       jobData
     );

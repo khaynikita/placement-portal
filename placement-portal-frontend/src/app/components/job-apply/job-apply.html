@@ -1,0 +1,70 @@
+<div class="apply-page" *ngIf="job() as job">
+
+  <section class="job-summary">
+    <h2>Apply for {{ job.title }}</h2>
+    <p>{{ job.companyName }} · {{ job.location }} · {{ job.jobType }}</p>
+  </section>
+
+  <form
+    class="apply-form"
+    (ngSubmit)="submitApplication()"
+  >
+    <label>
+      Full Name
+      <input
+        type="text"
+        name="applicantName"
+        required
+        [(ngModel)]="applicationData.applicantName"
+      >
+    </label>
+
+    <label>
+      Email
+      <input
+        type="email"
+        name="email"
+        required
+        [(ngModel)]="applicationData.email"
+      >
+    </label>
+
+    <label>
+      Phone
+      <input
+        type="tel"
+        name="phone"
+        required
+        [(ngModel)]="applicationData.phone"
+      >
+    </label>
+
+    <label>
+      Resume URL
+      <input
+        type="url"
+        name="resumeUrl"
+        required
+        [(ngModel)]="applicationData.resumeUrl"
+      >
+    </label>
+
+    <label>
+      Cover Letter
+      <textarea
+        name="coverLetter"
+        rows="5"
+        [(ngModel)]="applicationData.coverLetter"
+      ></textarea>
+    </label>
+
+    <button type="submit">
+      Submit Application
+    </button>
+  </form>
+
+  <p class="message">
+    {{ message }}
+  </p>
+
+</div>

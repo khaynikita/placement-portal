@@ -31,41 +31,12 @@ export class Register {
     .register(this.registerData)
     .subscribe({
 
-      next: () => {
+      next: (response) => {
 
-        // auto login after register
-        this.authService.login({
+        console.log(response);
 
-          email: this.registerData.email,
-          password: this.registerData.password
-
-        }).subscribe({
-
-          next: (loginResponse: any) => {
-
-            console.log(loginResponse);
-
-            // save JWT token
-            localStorage.setItem(
-              'token',
-              loginResponse.token
-            );
-
-            // redirect to dashboard
-            this.router.navigate(['/']);
-
-          },
-
-          error: (error) => {
-
-            console.error(error);
-
-            this.message =
-              'Registered but login failed';
-
-          }
-
-        });
+        this.authService.saveSession(response);
+        this.router.navigate(['/']);
 
       },
 

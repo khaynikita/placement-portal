@@ -1,8 +1,11 @@
 package com.nikita.placementportal.service;
 
 import com.nikita.placementportal.dto.application.ApplyJobDTO;
+import com.nikita.placementportal.dto.application.ApplicationResponseDTO;
 import com.nikita.placementportal.entity.Application;
+import com.nikita.placementportal.entity.Job;
 import com.nikita.placementportal.repository.ApplicationRepository;
+import com.nikita.placementportal.repository.JobRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,13 +17,18 @@ import java.util.List;
 public class ApplicationService {
 
     private final ApplicationRepository applicationRepository;
+    private final JobRepository jobRepository;
 
     public Application applyToJob(ApplyJobDTO request) {
 
         Application application = Application.builder()
                 .jobId(request.getJobId())
                 .studentId(request.getStudentId())
+                .applicantName(request.getApplicantName())
+                .email(request.getEmail())
+                .phone(request.getPhone())
                 .resumeUrl(request.getResumeUrl())
+                .coverLetter(request.getCoverLetter())
                 .status("APPLIED")
                 .appliedAt(LocalDateTime.now())
                 .build();
@@ -28,7 +36,35 @@ public class ApplicationService {
         return applicationRepository.save(application);
     }
 
-    public List<Application> getMyApplications(String studentId) {
-        return applicationRepository.findByStudentId(studentId);
+    public List<ApplicationResponseDTO> getMyApplications(String studentId) {
+        return applicationRepository.findByStudentId(studentId)
+                .stream()
+                .map(this::toResponse)
+                .toList();
+    }
+
+    private ApplicationResponseDTO toResponse(Application application) {
+        Job job = jobRepository.findById(application.getJobId())
+                .orElse(null);
+
+        return new ApplicationResponseDTO(
+                application.getId(),
+                application.getJobId(),
+                job == null ? "Job unavailable" : job.getTitle(),
+                job == null ? "" : job.getCompanyName(),
+                job == null ? "" : job.getLocation(),
+                job == null ? "" : job.getSalary(),
+                job == null ? "" : job.getJobType(),
+                job == null ? "" : job.getExperienceRequired(),
+                job == null ? List.of() : job.getSkills(),
+                application.getStudentId(),
+                application.getApplicantName(),
+                application.getEmail(),
+                application.getPhone(),
+                application.getStatus(),
+                application.getResumeUrl(),
+                application.getCoverLetter(),
+                application.getAppliedAt()
+        );
     }
 }

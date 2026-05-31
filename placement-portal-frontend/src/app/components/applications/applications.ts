@@ -26,7 +26,7 @@ export class Applications implements OnInit {
   getApplications() {
 
     this.applicationService
-      .getMyApplications('student1')
+      .getCurrentUserApplications()
       .subscribe({
 
         next: (response) => {

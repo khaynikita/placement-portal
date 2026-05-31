@@ -2,6 +2,7 @@ package com.nikita.placementportal.dto.auth;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Email;
 import lombok.Data;
 
 @Data
@@ -10,6 +11,7 @@ public class RegisterRequestDTO {
 
     @NotBlank
     public String name;
+    @Email
     @NotBlank
     public String email;
     @NotBlank

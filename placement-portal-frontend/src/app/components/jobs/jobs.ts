@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { JobCard } from '../job-card/job-card';
@@ -17,7 +17,7 @@ export class Jobs implements OnInit {
 
   private jobService = inject(JobService);
 
-  jobs: Job[] = [];
+  jobs = signal<Job[]>([]);
 
   ngOnInit(): void {
 
@@ -33,13 +33,14 @@ export class Jobs implements OnInit {
 
         console.log(response);
 
-        this.jobs = response;
+        this.jobs.set(Array.isArray(response) ? response : []);
 
       },
 
       error: (error) => {
 
         console.error(error);
+        this.jobs.set([]);
 
       }
 

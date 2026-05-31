@@ -79,20 +79,46 @@
     *ngFor="let application of applications"
   >
 
-    <p>
-      <strong>Job ID:</strong>
-      {{ application.jobId }}
-    </p>
+    <div class="left">
+      <h3>
+        {{ application.jobTitle }}
+      </h3>
 
-    <p>
-      <strong>Status:</strong>
-      {{ application.status }}
-    </p>
+      <p class="company">
+        {{ application.companyName }} · {{ application.location }}
+      </p>
 
-    <p>
-      <strong>Applied At:</strong>
-      {{ application.appliedAt }}
-    </p>
+      <p class="date">
+        {{ application.jobType }} · {{ application.salary }} · {{ application.experienceRequired }}
+      </p>
+
+      <p class="date">
+        Applied on: {{ application.appliedAt | date:'medium' }}
+      </p>
+
+      <div class="skills">
+        <span
+          class="skill"
+          *ngFor="let skill of application.skills"
+        >
+          {{ skill }}
+        </span>
+      </div>
+    </div>
+
+    <div class="right">
+      <span class="status applied">
+        {{ application.status }}
+      </span>
+
+      <a
+        class="view-btn"
+        [href]="application.resumeUrl"
+        target="_blank"
+      >
+        My Resume
+      </a>
+    </div>
 
   </div>
 

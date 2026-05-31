@@ -19,7 +19,11 @@ public class Application {
 
     private String jobId;
     private String studentId;
+    private String applicantName;
+    private String email;
+    private String phone;
     private String resumeUrl;
+    private String coverLetter;
     private String status;
     private LocalDateTime appliedAt;
 }
