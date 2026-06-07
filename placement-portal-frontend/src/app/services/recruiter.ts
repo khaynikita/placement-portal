@@ -33,11 +33,23 @@ export class RecruiterService {
   }
 
   getApplicants(
-    jobId: string
+    jobId?: string
   ): Observable<any> {
 
     return this.http.get<any>(
-      `${this.apiUrl}/applicants/${jobId}`
+      'http://localhost:8080/api/recruiter/applicants'
+    );
+
+  }
+
+  updateApplicationStatus(
+    applicationId: string,
+    status: string
+  ): Observable<any> {
+
+    return this.http.patch<any>(
+      `http://localhost:8080/api/recruiter/applications/${applicationId}/status`,
+      { status }
     );
 
   }

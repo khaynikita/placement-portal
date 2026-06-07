@@ -1,0 +1,16 @@
+.admin-container {
+  padding: 20px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+.user-row {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 120px;
+  gap: 12px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}

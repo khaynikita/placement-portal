@@ -11,6 +11,7 @@ import { Login } from './login/login';
 import { Register } from './register/register';
 
 import { authGuard } from './guards/auth-guard';
+import { roleGuard } from './guards/role.guard';
 
 export const routes: Routes = [
 
@@ -53,13 +54,19 @@ export const routes: Routes = [
   {
     path: 'applications',
     component: Applications,
-    canActivate: [authGuard]
+    canActivate: [roleGuard(['STUDENT', 'ADMIN'])]
   },
 
   {
     path: 'admin',
     component: Admin,
-    canActivate: [authGuard]
+    canActivate: [roleGuard(['ADMIN'])]
+  },
+
+  {
+    path: 'recruiter/applicants',
+    loadComponent: () => import('./recruiter/applicants-list/applicants-list').then(m => m.ApplicantsList),
+    canActivate: [roleGuard(['RECRUITER', 'ADMIN'])]
   }
 
 ];

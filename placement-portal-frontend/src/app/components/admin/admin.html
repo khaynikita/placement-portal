@@ -7,15 +7,36 @@
   <div *ngIf="dashboardData">
 
     <p>
-      Total Users:
-      {{ dashboardData.totalUsers }}
+      Total Students:
+      {{ dashboardData.totalStudents }}
     </p>
 
     <p>
-      Total Jobs:
+      Total Recruiters:
+      {{ dashboardData.totalRecruiters }}
+    </p>
+
+    <p>
+      Jobs:
       {{ dashboardData.totalJobs }}
     </p>
 
+    <p>
+      Placement Rate:
+      {{ dashboardData.placementRate }}%
+    </p>
+
+  </div>
+
+  <h3>Users</h3>
+
+  <div
+    class="user-row"
+    *ngFor="let user of users"
+  >
+    <span>{{ user.name }}</span>
+    <span>{{ user.email }}</span>
+    <span>{{ user.role }}</span>
   </div>
 
 </div>

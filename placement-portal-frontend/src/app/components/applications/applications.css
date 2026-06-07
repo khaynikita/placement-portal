@@ -15,6 +15,28 @@
   margin-bottom: 20px;
 }
 
+.tracker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.summary-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  color: #374151;
+}
+
 .filter-btn {
   background: white;
   border: 1px solid #ddd;
@@ -125,4 +147,13 @@
 
 .view-btn:hover {
   background: #eef2ff;
+}
+
+.reject-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
 }

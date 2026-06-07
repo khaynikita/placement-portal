@@ -50,7 +50,16 @@ export class ApplicationService {
   getCurrentUserApplications(): Observable<any[]> {
 
     return this.http.get<any[]>(
-      `${this.apiUrl}/my`
+      'http://localhost:8080/api/student/applications'
+    );
+
+  }
+
+  withdrawApplication(applicationId: string): Observable<any> {
+
+    return this.http.patch<any>(
+      `http://localhost:8080/api/student/applications/${applicationId}/withdraw`,
+      {}
     );
 
   }

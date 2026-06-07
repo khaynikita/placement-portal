@@ -77,6 +77,27 @@ export class AuthService {
     return JSON.parse(user) as CurrentUser;
   }
 
+  getCurrentUserRole(): string {
+    const user = this.getStoredUser();
+
+    if (user?.role) {
+      return user.role;
+    }
+
+    const token = this.getToken();
+
+    if (!token) {
+      return '';
+    }
+
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload.role || '';
+    } catch {
+      return '';
+    }
+  }
+
   logout(): void {
     localStorage.removeItem(this.tokenKey);
     localStorage.removeItem(this.userKey);

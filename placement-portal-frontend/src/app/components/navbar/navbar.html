@@ -31,6 +31,7 @@
       <a
         routerLink="/applications"
         routerLinkActive="active"
+        *ngIf="role === 'STUDENT' || role === 'ADMIN'"
       >
         Applications
       </a>
@@ -40,8 +41,19 @@
       <a
         routerLink="/admin"
         routerLinkActive="active"
+        *ngIf="role === 'ADMIN'"
       >
         Admin
+      </a>
+    </li>
+
+    <li>
+      <a
+        routerLink="/recruiter/applicants"
+        routerLinkActive="active"
+        *ngIf="role === 'RECRUITER' || role === 'ADMIN'"
+      >
+        Applicants
       </a>
     </li>
 
@@ -51,6 +63,7 @@
       <a
         routerLink="/login"
         routerLinkActive="active"
+        *ngIf="!isLoggedIn"
       >
         Login
       </a>
@@ -60,6 +73,7 @@
       <a
         routerLink="/register"
         routerLinkActive="active"
+        *ngIf="!isLoggedIn"
       >
         Register
       </a>
@@ -70,9 +84,7 @@
   <!-- Right -->
   <div class="right-section">
 
-    <span class="icon">
-      🔔
-    </span>
+    <app-notification-bell *ngIf="isLoggedIn"></app-notification-bell>
 
     <img
       [src]="user.profileImage"
@@ -83,6 +95,7 @@
     <button
       class="logout-btn"
       (click)="logout()"
+      *ngIf="isLoggedIn"
     >
       Logout
     </button>

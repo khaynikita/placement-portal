@@ -40,4 +40,5 @@ public class ApplicationController {
 
         return applicationService.getMyApplications(user.getId());
     }
+
 }

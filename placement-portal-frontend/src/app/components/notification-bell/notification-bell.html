@@ -1,0 +1,42 @@
+<div class="notification-bell">
+  <button
+    type="button"
+    class="bell-button"
+    (click)="togglePanel()"
+  >
+    🔔
+    <span
+      class="badge"
+      *ngIf="(unreadCount$ | async) as count"
+    >
+      {{ count > 99 ? '99+' : count }}
+    </span>
+  </button>
+
+  <div
+    class="notification-panel"
+    *ngIf="isOpen"
+  >
+    <div class="panel-header">
+      <h4>Notifications</h4>
+    </div>
+
+    <p
+      class="empty"
+      *ngIf="(notifications$ | async)?.length === 0"
+    >
+      No notifications yet
+    </p>
+
+    <button
+      type="button"
+      class="notification-item"
+      *ngFor="let notification of notifications$ | async"
+      [class.unread]="!notification.read"
+      (click)="handleClick(notification)"
+    >
+      <span>{{ notification.message }}</span>
+      <small>{{ notification.createdAt | date:'short' }}</small>
+    </button>
+  </div>
+</div>

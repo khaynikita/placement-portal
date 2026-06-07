@@ -18,6 +18,7 @@ public class ApplicationService {
 
     private final ApplicationRepository applicationRepository;
     private final JobRepository jobRepository;
+    private final NotificationService notificationService;
 
     public Application applyToJob(ApplyJobDTO request) {
 
@@ -41,6 +42,44 @@ public class ApplicationService {
                 .stream()
                 .map(this::toResponse)
                 .toList();
+    }
+
+    public List<ApplicationResponseDTO> getAllApplications() {
+        return applicationRepository.findAll()
+                .stream()
+                .map(this::toResponse)
+                .toList();
+    }
+
+    public ApplicationResponseDTO updateStatus(String applicationId, String status) {
+        Application application = applicationRepository.findById(applicationId)
+                .orElseThrow(() -> new RuntimeException("Application not found"));
+        String normalizedStatus = status == null ? "PENDING" : status.trim().toUpperCase();
+
+        application.setStatus(normalizedStatus);
+        Application saved = applicationRepository.save(application);
+        Job job = jobRepository.findById(saved.getJobId()).orElse(null);
+        String jobTitle = job == null ? "a job" : job.getTitle();
+        notificationService.create(
+                saved.getStudentId(),
+                "Your application for " + jobTitle + " is now " + normalizedStatus,
+                "APPLICATION_UPDATE"
+        );
+
+        return toResponse(saved);
+    }
+
+    public ApplicationResponseDTO withdraw(String applicationId, String studentId) {
+        Application application = applicationRepository.findById(applicationId)
+                .orElseThrow(() -> new RuntimeException("Application not found"));
+
+        if (!studentId.equals(application.getStudentId())) {
+            throw new RuntimeException("Application does not belong to this user");
+        }
+
+        application.setStatus("WITHDRAWN");
+
+        return toResponse(applicationRepository.save(application));
     }
 
     private ApplicationResponseDTO toResponse(Application application) {

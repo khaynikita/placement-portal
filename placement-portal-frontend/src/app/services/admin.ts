@@ -14,12 +14,13 @@ export class AdminService {
   private http = inject(HttpClient);
 
   private apiUrl =
-    'http://localhost:8080/admin';
+    'http://localhost:8080/api/admin';
 
   getDashboard(): Observable<any> {
 
     return this.http.get<any>(
       `${this.apiUrl}/dashboard`
+        .replace('/dashboard', '/dashboard/stats')
     );
 
   }
