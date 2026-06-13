@@ -1,0 +1,50 @@
+.matched-page {
+  padding: 24px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+.header,
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.job-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.score-ring {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  border: 6px solid #ef4444;
+}
+
+.score-ring.good { border-color: #16a34a; }
+.score-ring.ok { border-color: #f59e0b; }
+
+.match-panel {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.pill {
+  width: fit-content;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.pill.good { background: #dcfce7; color: #166534; }
+.pill.low { background: #fee2e2; color: #991b1b; }

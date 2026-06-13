@@ -29,6 +29,16 @@
 
     <li>
       <a
+        routerLink="/matched-jobs"
+        routerLinkActive="active"
+        *ngIf="role === 'STUDENT' || role === 'ADMIN'"
+      >
+        Matches
+      </a>
+    </li>
+
+    <li>
+      <a
         routerLink="/applications"
         routerLinkActive="active"
         *ngIf="role === 'STUDENT' || role === 'ADMIN'"
@@ -54,6 +64,26 @@
         *ngIf="role === 'RECRUITER' || role === 'ADMIN'"
       >
         Applicants
+      </a>
+    </li>
+
+    <li>
+      <a
+        routerLink="/recruiter/pipeline"
+        routerLinkActive="active"
+        *ngIf="role === 'RECRUITER' || role === 'ADMIN'"
+      >
+        Pipeline
+      </a>
+    </li>
+
+    <li>
+      <a
+        routerLink="/interviews"
+        routerLinkActive="active"
+        *ngIf="role === 'STUDENT' || role === 'ADMIN'"
+      >
+        Interviews
       </a>
     </li>
 

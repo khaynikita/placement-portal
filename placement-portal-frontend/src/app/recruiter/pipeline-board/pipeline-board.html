@@ -1,0 +1,29 @@
+<div class="pipeline-page">
+  <h2>Application Pipeline</h2>
+
+  <div class="board">
+    <section class="column" *ngFor="let status of statuses">
+      <h3>{{ status }}</h3>
+
+      <article class="candidate-card" *ngFor="let applicant of byStatus(status)">
+        <div class="avatar">{{ applicant.studentName?.charAt(0) || '?' }}</div>
+        <div>
+          <strong>{{ applicant.studentName }}</strong>
+          <p>{{ applicant.jobTitle }}</p>
+          <small>{{ applicant.companyName }}</small>
+        </div>
+
+        <div class="actions">
+          <button
+            type="button"
+            *ngFor="let target of statuses"
+            [disabled]="target === status"
+            (click)="move(applicant.id, target)"
+          >
+            {{ target }}
+          </button>
+        </div>
+      </article>
+    </section>
+  </div>
+</div>

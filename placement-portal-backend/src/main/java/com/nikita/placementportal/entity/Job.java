@@ -26,6 +26,7 @@ public class Job {
     private String description;
     private String requirements;
     private String experienceRequired;
+    private Double cgpaCutoff;
     private List<String> skills;
     private String postedBy;
     private LocalDateTime createdAt;

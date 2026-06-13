@@ -1,0 +1,40 @@
+<div class="matched-page">
+  <div class="header">
+    <h2>Best Matches For You</h2>
+    <label>
+      <input
+        type="checkbox"
+        [checked]="onlyQualified()"
+        (change)="onlyQualified.set(!onlyQualified())"
+      >
+      Show only jobs I qualify for
+    </label>
+  </div>
+
+  <div class="job-card" *ngFor="let item of visibleJobs()">
+    <div class="card-top">
+      <div>
+        <h3>{{ item.job.title }}</h3>
+        <p>{{ item.job.companyName }} · {{ item.job.location }}</p>
+      </div>
+      <div class="score-ring" [ngClass]="badgeClass(item.match.score)">
+        {{ item.match.score }}%
+      </div>
+    </div>
+
+    <p>{{ item.job.description }}</p>
+
+    <div class="match-panel">
+      <strong>Matched skills</strong>
+      <span class="pill good" *ngFor="let skill of item.match.matchedSkills">{{ skill }}</span>
+
+      <strong>Missing skills</strong>
+      <span class="pill low" *ngFor="let skill of item.match.missingSkills">{{ skill }}</span>
+
+      <p>{{ item.match.cgpaMet ? 'CGPA cutoff met' : 'CGPA below cutoff' }}</p>
+      <p>{{ item.match.projectRelevant ? 'Relevant project found' : 'No relevant project found' }}</p>
+    </div>
+
+    <a [routerLink]="['/jobs', item.job.id]">View Details</a>
+  </div>
+</div>

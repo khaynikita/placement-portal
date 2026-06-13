@@ -1,0 +1,12 @@
+<div class="interviews-page">
+  <h2>Upcoming Interviews</h2>
+
+  <article class="interview-card" *ngFor="let interview of interviews()">
+    <div class="time">{{ interview.scheduledAt | date:'short' }}</div>
+    <div>
+      <h3>{{ interview.roundName }}</h3>
+      <p>{{ interview.durationMinutes }} minutes</p>
+      <a [href]="interview.meetLink" target="_blank">Join Meet</a>
+    </div>
+  </article>
+</div>

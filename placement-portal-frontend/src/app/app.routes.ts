@@ -41,6 +41,12 @@ export const routes: Routes = [
   },
 
   {
+    path: 'matched-jobs',
+    loadComponent: () => import('./components/matched-jobs/matched-jobs').then(m => m.MatchedJobs),
+    canActivate: [roleGuard(['STUDENT', 'ADMIN'])]
+  },
+
+  {
     path: 'jobs/:id/apply',
     component: JobApply,
     canActivate: [authGuard]
@@ -67,6 +73,24 @@ export const routes: Routes = [
     path: 'recruiter/applicants',
     loadComponent: () => import('./recruiter/applicants-list/applicants-list').then(m => m.ApplicantsList),
     canActivate: [roleGuard(['RECRUITER', 'ADMIN'])]
+  },
+
+  {
+    path: 'recruiter/pipeline',
+    loadComponent: () => import('./recruiter/pipeline-board/pipeline-board').then(m => m.PipelineBoard),
+    canActivate: [roleGuard(['RECRUITER', 'ADMIN'])]
+  },
+
+  {
+    path: 'interviews',
+    loadComponent: () => import('./components/upcoming-interviews/upcoming-interviews').then(m => m.UpcomingInterviews),
+    canActivate: [roleGuard(['STUDENT', 'ADMIN'])]
+  },
+
+  {
+    path: 'admin/analytics',
+    loadComponent: () => import('./components/admin-analytics/admin-analytics').then(m => m.AdminAnalytics),
+    canActivate: [roleGuard(['ADMIN'])]
   }
 
 ];

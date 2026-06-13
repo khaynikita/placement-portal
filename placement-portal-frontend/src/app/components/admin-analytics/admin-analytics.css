@@ -1,0 +1,52 @@
+.analytics-page {
+  padding: 24px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+.header,
+.kpis {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.kpis div,
+.chart-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.kpis div {
+  flex: 1;
+  display: grid;
+  gap: 6px;
+}
+
+.kpis strong {
+  font-size: 26px;
+}
+
+.bar {
+  display: grid;
+  grid-template-columns: 120px 1fr 60px;
+  gap: 10px;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.bar div {
+  height: 12px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar i {
+  display: block;
+  height: 100%;
+  background: #4f46e5;
+}

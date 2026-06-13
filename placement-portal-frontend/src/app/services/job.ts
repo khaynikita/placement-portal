@@ -43,6 +43,12 @@ export class JobService {
 
   }
 
+  getStudentMatchedJobs(): Observable<any[]> {
+
+    return this.http.get<any[]>('http://localhost:8080/api/student/jobs');
+
+  }
+
   getJobById(id: string): Observable<Job> {
 
     return this.http.get<Job>(
