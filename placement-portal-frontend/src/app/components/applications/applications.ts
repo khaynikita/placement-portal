@@ -4,6 +4,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ApplicationService } from '../../services/application';
+import { AuthService } from '../../services/auth';
 
 @Component({
   selector: 'app-applications',
@@ -15,20 +16,26 @@ export class Applications implements OnInit {
 
   private applicationService =
     inject(ApplicationService);
+  private authService = inject(AuthService);
 
   applications: any[] = [];
   statusFilter = '';
+  role = '';
 
   ngOnInit(): void {
 
+    this.role = this.authService.getCurrentUserRole();
     this.getApplications();
 
   }
 
   getApplications() {
 
-    this.applicationService
-      .getCurrentUserApplications()
+    const request = this.role === 'ADMIN'
+      ? this.applicationService.getAdminApplications()
+      : this.applicationService.getCurrentUserApplications();
+
+    request
       .subscribe({
 
         next: (response) => {

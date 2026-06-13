@@ -43,7 +43,7 @@
         routerLinkActive="active"
         *ngIf="role === 'STUDENT' || role === 'ADMIN'"
       >
-        Applications
+        {{ role === 'ADMIN' ? 'All Applications' : 'Applications' }}
       </a>
     </li>
 
@@ -63,7 +63,7 @@
         routerLinkActive="active"
         *ngIf="role === 'RECRUITER' || role === 'ADMIN'"
       >
-        Applicants
+        {{ role === 'ADMIN' ? 'Applicant Review' : 'Applicants' }}
       </a>
     </li>
 
@@ -74,16 +74,6 @@
         *ngIf="role === 'RECRUITER' || role === 'ADMIN'"
       >
         Pipeline
-      </a>
-    </li>
-
-    <li>
-      <a
-        routerLink="/interviews"
-        routerLinkActive="active"
-        *ngIf="role === 'STUDENT' || role === 'ADMIN'"
-      >
-        Interviews
       </a>
     </li>
 

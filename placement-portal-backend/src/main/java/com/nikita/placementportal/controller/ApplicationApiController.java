@@ -44,6 +44,11 @@ public class ApplicationApiController {
         return applicationService.getAllApplications();
     }
 
+    @GetMapping("/admin/applications")
+    public List<ApplicationResponseDTO> getAdminApplications() {
+        return applicationService.getAllApplications();
+    }
+
     @PatchMapping("/recruiter/applications/{id}/status")
     public ApplicationResponseDTO updateApplicationStatus(
             @PathVariable String id,

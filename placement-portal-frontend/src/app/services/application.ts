@@ -55,6 +55,14 @@ export class ApplicationService {
 
   }
 
+  getAdminApplications(): Observable<any[]> {
+
+    return this.http.get<any[]>(
+      'http://localhost:8080/api/admin/applications'
+    );
+
+  }
+
   withdrawApplication(applicationId: string): Observable<any> {
 
     return this.http.patch<any>(

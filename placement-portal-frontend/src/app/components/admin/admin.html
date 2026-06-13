@@ -4,7 +4,7 @@
 
   <h2>Admin Dashboard</h2>
 
-  <div *ngIf="dashboardData">
+  <div *ngIf="dashboardData() as dashboardData">
 
     <p>
       Total Students:
@@ -32,7 +32,7 @@
 
   <div
     class="user-row"
-    *ngFor="let user of users"
+    *ngFor="let user of users()"
   >
     <span>{{ user.name }}</span>
     <span>{{ user.email }}</span>

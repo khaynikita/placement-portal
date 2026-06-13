@@ -1,6 +1,6 @@
 // admin.ts
 
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminService } from '../../services/admin';
 
@@ -14,9 +14,9 @@ export class Admin implements OnInit {
 
   private adminService = inject(AdminService);
 
-  dashboardData: any;
+  dashboardData = signal<any>(null);
 
-  users: any[] = [];
+  users = signal<any[]>([]);
 
   ngOnInit(): void {
 
@@ -32,7 +32,7 @@ export class Admin implements OnInit {
 
       next: (response) => {
 
-        this.dashboardData = response;
+        this.dashboardData.set(response);
 
       }
 
@@ -46,7 +46,7 @@ export class Admin implements OnInit {
 
       next: (response) => {
 
-        this.users = response;
+        this.users.set(response);
 
       }
 

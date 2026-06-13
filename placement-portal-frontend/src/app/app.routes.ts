@@ -82,12 +82,6 @@ export const routes: Routes = [
   },
 
   {
-    path: 'interviews',
-    loadComponent: () => import('./components/upcoming-interviews/upcoming-interviews').then(m => m.UpcomingInterviews),
-    canActivate: [roleGuard(['STUDENT', 'ADMIN'])]
-  },
-
-  {
     path: 'admin/analytics',
     loadComponent: () => import('./components/admin-analytics/admin-analytics').then(m => m.AdminAnalytics),
     canActivate: [roleGuard(['ADMIN'])]

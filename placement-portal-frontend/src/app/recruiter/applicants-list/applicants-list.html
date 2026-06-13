@@ -1,10 +1,10 @@
 <div class="applicants-container">
 
-  <h2>Applicants</h2>
+  <h2>Applicant Review</h2>
 
   <div
     class="applicant-card"
-    *ngFor="let applicant of applicants"
+    *ngFor="let applicant of applicants()"
   >
 
     <div class="left">
@@ -12,7 +12,9 @@
       <div>
         <h3>{{ applicant.studentName }}</h3>
         <p>{{ applicant.jobTitle }} · {{ applicant.companyName }}</p>
+        <p>{{ applicant.location }} · {{ applicant.jobType }} · {{ applicant.salary }}</p>
         <p>{{ applicant.email }} · {{ applicant.phone }}</p>
+        <p>Applied: {{ applicant.appliedAt | date:'medium' }}</p>
         <p>
           <span
             class="skill"
@@ -25,6 +27,13 @@
     </div>
 
     <div class="right">
+      <span
+        class="status"
+        [ngClass]="applicant.status?.toLowerCase()"
+      >
+        {{ applicant.status }}
+      </span>
+
       <a
         class="view-btn"
         [href]="applicant.resumeUrl"
@@ -35,6 +44,7 @@
       <button
         class="shortlist-btn"
         type="button"
+        [disabled]="applicant.status === 'SHORTLISTED'"
         (click)="updateStatus(applicant.id, 'SHORTLISTED')"
       >
         Shortlist
@@ -42,6 +52,7 @@
       <button
         class="reject-btn"
         type="button"
+        [disabled]="applicant.status === 'REJECTED'"
         (click)="updateStatus(applicant.id, 'REJECTED')"
       >
         Reject
@@ -49,6 +60,7 @@
       <button
         class="offer-btn"
         type="button"
+        [disabled]="applicant.status === 'OFFERED'"
         (click)="updateStatus(applicant.id, 'OFFERED')"
       >
         Offer
@@ -56,5 +68,12 @@
     </div>
 
   </div>
+
+  <p
+    class="empty"
+    *ngIf="applicants().length === 0"
+  >
+    No applicants found.
+  </p>
 
 </div>

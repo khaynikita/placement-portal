@@ -19,8 +19,7 @@ export class AdminService {
   getDashboard(): Observable<any> {
 
     return this.http.get<any>(
-      `${this.apiUrl}/dashboard`
-        .replace('/dashboard', '/dashboard/stats')
+      `${this.apiUrl}/dashboard/stats`
     );
 
   }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { RecruiterService } from '../../services/recruiter';
 
 @Component({
@@ -12,7 +12,7 @@ export class ApplicantsList implements OnInit {
 
   private recruiterService = inject(RecruiterService);
 
-  applicants: any[] = [];
+  applicants = signal<any[]>([]);
 
   ngOnInit(): void {
     this.loadApplicants();
@@ -20,7 +20,7 @@ export class ApplicantsList implements OnInit {
 
   loadApplicants() {
     this.recruiterService.getApplicants().subscribe({
-      next: response => this.applicants = response,
+      next: response => this.applicants.set(Array.isArray(response) ? response : []),
       error: error => console.error(error)
     });
   }

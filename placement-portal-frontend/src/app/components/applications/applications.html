@@ -2,7 +2,7 @@
 
   <!-- Header -->
   <!-- <div class="header">
-    <h2>My Applications</h2>
+    <h2>{{ role === 'ADMIN' ? 'All Applications' : 'My Applications' }}</h2>
   </div> -->
 
   <!-- Filter Section -->
@@ -144,7 +144,7 @@
       <button
         type="button"
         class="reject-btn"
-        *ngIf="application.status !== 'WITHDRAWN'"
+        *ngIf="role !== 'ADMIN' && application.status !== 'WITHDRAWN'"
         (click)="withdraw(application.id)"
       >
         Withdraw
